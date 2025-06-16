@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <script>
+      var url = window.location.href;
+      if (url.startsWith('http://')) {
+        window.location.href = url.replace('http://', 'https://');
+      }
+      </script>
+  </head>
+  <body>
+    <h3>
+      Payment Form
+    </h3>
+    <div >
+    <form action="payment_form_submit.html" method="POST" id="payment">
+      <label for="cc-number">Credit Card #:</label>
+      <input name="cc-number" id="cc-number" type="text" autocomplete="cc-number"><br/>
+      <label for="cc-exp">Expiry Date:</label>
+      <label for="cc-exp-month">Expiry Month:</label>
+      <input name="cc-exp-month" autocomplete="cc-exp-month" id="month"><br/>
+      <input name="cc-exp-year" autocomplete="cc-exp-year"><br/>
+      <label for="csc">CSC:</label>
+      <input name="csc" type="text" autocomplete="cc-csc" id="csc"><br/>
+      <label for="cc-given-name">Given Name:</label>
+      <input name="cc-given-name" type="text" autocomplete="cc-given-name"><br/>
+      <label for="cc-name">Name:</label>
+      <input name="cc-name" type="text" autocomplete="cc-name"><br/>
+      <label for="country">Country:</label>
+      <input name="country" type="text" autocomplete="country" id="country00">
+      <input type="submit"/>
+    </form>       
+    </div>    
+    <p/>
+    <h3>
+      Address Form
+    </h3>
+    <form action="payment_form_submit.html" method="POST">
+      <label for="name">Name:</label>
+      <input name="name" type="text" autocomplete="name" id="name"><br/>
+      <label for="address-line1">Street Address:</label>
+      <input name="address-line1" type="text" autocomplete="address-line1" id="addressline1"><br/>
+      <label for="address-level2">City:</label>
+      <input name="address-level2" type="text" autocomplete="address-level2" id="addresslevel2"><br/>
+      <label for="address-level1">Province:</label>
+      <input name="address-level1" type="text" autocomplete="address-level1" id="addresslevel1"z><br/>
+      <label for="postal-code">Postal Code:</label>
+      <input name="postal-code" type="text" autocomplete="postal-code" id="postalcode"><br/>
+      <label for="country">Country:</label>
+      <select name="country" autocomplete="country" id="country">
+        <option value="USA">United States</option> 
+        <option value="Canada">Canada</option>
+        <option value="Czech Republic">Czech Republic</option>
+        <option value="France">France</option>
+      </select><br/>
+      <input type="submit"/>
+    </form>
+    <h3>
+      Mixed Form
+    </h3>
+    <form action="https://?k=v" method="POST">
+      <label for="cc-number">Credit Card #:</label>
+      <input name="cc-number" type="text" autocomplete="cc-number"><br/>
+      <label for="name">Name:</label>
+      <input name="name" type="text" autocomplete="name"><br/>
+      <label for="address-line1">Street Address:</label>
+      <input name="address-line1" type="text" autocomplete="address-line1" size="5"><br/>
+      <input name="address-line2" type="text" autocomplete="address-line2"><br/>
+      <label for="address-level2">City:</label>
+      <input name="address-level2" type="text" autocomplete="address-level2"><br/>
+      <label for="address-level1">Province:</label>
+      <input name="address-level1" type="text" autocomplete="address-level1"><br/>
+      <label for="country">Country:</label>
+      <input name="country" type="text" autocomplete="country"><br/>
+      <label for="postal-code">Postal Code:</label>
+      <input name="postal-code" type="text" autocomplete="postal-code"><br/>
+      <label for="country2">Country2:</label>
+      <select name="country2" autocomplete="country" id="country22">
+        <option value="USA">United States</option> 
+        <option value="Canada">Canada</option>
+        <option value="Czech Republic">Czech Republic</option>
+        <option value="France">France</option>
+      </select><br/>
+            <label for="username">User Name:</label>
+      <input name="username" type="text" autocomplete="username"><br/>
+      <label for="current-password">Password:</label>
+      <input name="current-password" type="password" autocomplete="current-password"><br/>
+      <input type="submit"/>
+    
+    </form>
+     <button id="button2">
+        Button
+      </button>
+      <script>
+        document.getElementById("button2").onclick = function() {document.getElementById("country22").value = "France";}
+      </script>
+    <h3>
+      User Information Form
+    </h3>
+    <form action="user_info_form_submit.html" method="POST">
+      <label for="given-name">Given Name:</label>
+      <input name="given-name" type="text" autocomplete="given-name"><br/>
+      <label for="name">Name:</label>
+      <input name="name" type="text" autocomplete="name"><br/>
+      <input type="submit"/>
+    </form>
+    <h3>
+      Login
+    </h3>
+    <form action="payment_form_submit.html" method="POST">
+      <label for="username">User Name:</label>
+      <input name="username" type="text" autocomplete="username"><br/>
+      <label for="password">Password:</label>
+      <input name="password" type="password" autocomplete="current-password"><br/>
+      <input type="submit"/>
+    </form>
+    <h3>
+      Search
+    </h3>
+        <form action="payment_form_submit.html" method="POST">
+      <label for="address-line3">Currency:</label>
+      <input name="address-line3" type="text" autocomplete="transaction-amount"><br/>
+      <label for="address-line2">Currency:</label>
+      <input name="address-line2" type="text" autocomplete="transaction-currency"><br/>
+      <input type="submit"/>
+    </form>
+  </body>
+</html>
