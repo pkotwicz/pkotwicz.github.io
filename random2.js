@@ -63,12 +63,14 @@ async function requestIssuance(requestedProtocol, doctype, requestedMdocAttribut
 async function requestDigitalCreds(requestedProtocol, doctype, requestedMdocAttributes, transactionData = null, issuanceOffer = null, vct_values = null, encrypt_response = false, sign_request = false, dcql_query = null) {
     var request = await getRequest(requestedProtocol, doctype, requestedMdocAttributes, transactionData, issuanceOffer, vct_values, encrypt_response, sign_request, dcql_query)
     try {
+        var abortController = new AbortController();
         var credentialResponse  = await navigator.credentials.get({
                 digital: {
                     requests: [{
                         protocol: request['protocol'],
                         data: request['request']
-                    }]
+                    },
+                    signal: abortController.signal]
                 },
             })
         if (credentialResponse.constructor.name == 'DigitalCredential') {
@@ -88,6 +90,8 @@ async function requestDigitalCreds(requestedProtocol, doctype, requestedMdocAttr
         } else {
             throw "Unknown response type"
         }
+
+        window.setInterval(function() {abortController.abort();}, 10000);
 
     } catch (err) {
         alert(err)
