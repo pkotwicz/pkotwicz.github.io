@@ -69,8 +69,8 @@ async function requestDigitalCreds(requestedProtocol, doctype, requestedMdocAttr
                     requests: [{
                         protocol: request['protocol'],
                         data: request['request']
-                    },
-                    signal: abortController.signal]
+                    }],
+                    signal: abortController.signal
                 },
             })
         if (credentialResponse.constructor.name == 'DigitalCredential') {
