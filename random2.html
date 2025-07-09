@@ -1,6 +1,251 @@
-<html>
-  <body>
-    This page contains a tech support scam. This page impersonates Microsoft and is trying to scam users out of their life savings.
-    <button onclick="navigator.keyboard.lock();document.body.requestPointerLock();">Request Mouse Lock</button>
-  </body>
-</html>
+<html lang="en"><head>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8PJG05CPSH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8PJG05CPSH');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="origin-trial" content="AuZnYo/k9Bhon5khhDC+rwKCDp3ewDh6pEKI5HMnS0jCwYz5hoTK/QUvdEZI6k2TEVD5F2O70YT5Ms2FwR7SVwQAAACBeyJvcmlnaW4iOiJodHRwczovL2RpZ2l0YWwtY3JlZGVudGlhbHMuZGV2OjQ0MyIsImZlYXR1cmUiOiJXZWJJZGVudGl0eURpZ2l0YWxDcmVkZW50aWFscyIsImV4cGlyeSI6MTc2MDQwMDAwMCwiaXNTdWJkb21haW4iOnRydWV9">
+    <title>Digital Credentials</title>
+    <link rel="icon" type="image/x-icon" href="https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/fingerprint/default/24px.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="random2.js"></script>
+  </head>
+  <body onload="onLoad()">
+    <div class="col-lg-8 mx-auto p-4 py-md-5">
+      <header class="d-flex align-items-center pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+          <span class="fs-4">Digital Credentials Demo</span>
+        </a>
+      </header>
+
+      <main>
+        <h1 class="text-body-emphasis">Get started with the Digital Credential API</h1>
+        <p class="fs-5 col-md-8">Request verified identity documents such as Mobile Driving Licenses or National ID cards</p>  
+
+        <div class="list-group" id="attributeList">
+          <label class="list-group-item d-flex gap-2">
+            <span>
+              MDOC - Mobile Driving License (mDL)
+              <small class="d-block text-body-secondary">doctype: org.iso.18013.5.1.mDL</small>
+            </span>
+          </label>
+        <label class="list-group-item d-flex gap-2">           <input class="form-check-input flex-shrink-0" id="familyNameAttr" type="checkbox" value="" checked="" onchange="handleAttrTicked(event)">             <span>               Family name              <small class="d-block text-body-secondary">org.iso.18013.5.1/family_name</small>             </span>           </label><label class="list-group-item d-flex gap-2">           <input class="form-check-input flex-shrink-0" id="givenNameAttr" type="checkbox" value="" checked="" onchange="handleAttrTicked(event)">             <span>               Given names              <small class="d-block text-body-secondary">org.iso.18013.5.1/given_name</small>             </span>           </label><label class="list-group-item d-flex gap-2">           <input class="form-check-input flex-shrink-0" id="birthDateAttr" type="checkbox" value="" onchange="handleAttrTicked(event)">             <span>               Birth Date              <small class="d-block text-body-secondary">org.iso.18013.5.1/birth_date</small>             </span>           </label><label class="list-group-item d-flex gap-2">           <input class="form-check-input flex-shrink-0" id="portraitAttr" type="checkbox" value="" onchange="handleAttrTicked(event)">             <span>               Portrait              <small class="d-block text-body-secondary">org.iso.18013.5.1/portrait</small>             </span>           </label><label class="list-group-item d-flex gap-2">           <input class="form-check-input flex-shrink-0" id="ageOverAttr" type="checkbox" value="" checked="" onchange="handleAttrTicked(event)">             <span>               Age Over 21              <small class="d-block text-body-secondary">org.iso.18013.5.1/age_over_21</small>             </span>           </label></div>
+        <div class="col-md-8 p-4">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="signRequest">
+            <label class="form-check-label" for="signRequest">
+              Signed request
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="useEncryption">
+            <label class="form-check-label" for="useEncryption">
+              Use encryption
+            </label>
+          </div>
+        </div>
+
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group-vertical me-2 mt-3" role="group" aria-label="First group">
+            <button type="button" class="btn btn-outline-primary" onclick="showRequest('openid4vp')">Show Request (OpenID4VP Draft 24)</button>
+            <button type="button" class="btn btn-outline-primary" onclick="requestAndShowDigitalCreds('openid4vp')">Request Credentials (OpenID4VP Draft 24)</button>
+          </div>
+          <div class="btn-group-vertical me-2 mt-3" role="group" aria-label="Second group">
+            <button type="button" class="btn btn-outline-primary" onclick="showRequest('openid4vp-v1')">Show Request (OpenID4VP 1.0 Candidate)</button>
+            <button type="button" class="btn btn-outline-primary" onclick="requestAndShowDigitalCreds('openid4vp-v1')">Request Credentials (OpenID4VP 1.0 Candidate)</button>
+          </div>
+        </div>
+        
+      </main>
+      <footer class="pt-5 my-5 text-body-secondary border-top">
+        Created by the Google Android and Chrome teams. This is not an offical Google product. Learn more <a href="https://github.com/WICG/digital-identities" role="button">here</a> 
+        <br>
+        This is a testing website that doesn't collect any data.
+      </footer>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="dataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="data-tab" aria-current="page" data-bs-toggle="tab" data-bs-target="#user-data" type="button" role="tab" aria-controls="user-data" aria-selected="true">User Data
+              </button></li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="debug-tab" aria-current="page" data-bs-toggle="tab" data-bs-target="#debug-info" type="button" role="tab" aria-controls="debug-info" aria-selected="false" tabindex="-1">Debug Info
+              </button></li>
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="tab-content overflow-auto" id="myTabContent">
+            <div class="tab-pane active" id="user-data" role="tabpanel" aria-labelledby="data-tab">
+              <ol class="list-group" id="user-data-list">
+                
+              </ol>
+            </div>
+            <div class="tab-pane" id="debug-info" role="tabpanel" aria-labelledby="debug-tab">
+              <ol class="list-group" id="debug-info-list">
+                
+              </ol>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Show Request Modal -->
+    <div class="modal fade" id="showRequestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Request</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ol class="list-group">
+              
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      var mdocAttributes = []
+
+      var familyNameAttr = {
+        namespace: "org.iso.18013.5.1",
+        name: "family_name",
+        displayName: "Family name",
+        checked: true
+      }
+
+      var givenNameAttr = {
+        namespace: "org.iso.18013.5.1",
+        name: "given_name",
+        displayName: "Given names",
+        checked: true
+      }
+
+      var birthDateAttr = {
+        namespace: "org.iso.18013.5.1",
+        name: "birth_date",
+        displayName: "Birth Date",
+        checked: false
+      }
+
+      var portraitAttr = {
+        namespace: "org.iso.18013.5.1",
+        name: "portrait",
+        displayName: "Portrait",
+        checked: false
+      }
+
+      var ageOverAttr = {
+        namespace: "org.iso.18013.5.1",
+        name: "age_over_21",
+        displayName: "Age Over 21",
+        checked: true
+      }
+
+      var mdocAttributes = {familyNameAttr: familyNameAttr, givenNameAttr: givenNameAttr, birthDateAttr: birthDateAttr, portraitAttr: portraitAttr, ageOverAttr: ageOverAttr}
+
+
+      function onLoad() {
+        console.log("onLoad")
+        var attributeList = document.getElementById('attributeList')
+        for (var key in mdocAttributes) {
+          attr = mdocAttributes[key]
+          isChecked = ""
+          if (attr["checked"]) {
+            isChecked = "checked"
+          }
+          attributeList.innerHTML += '<label class="list-group-item d-flex gap-2"> \
+          <input class="form-check-input flex-shrink-0" id="' + key + '" type="checkbox" value=""' + isChecked + ' onchange="handleAttrTicked(event)"> \
+            <span> \
+              '+ attr["displayName"] + '\
+              <small class="d-block text-body-secondary">' + attr["namespace"] + '/' + attr["name"] + '</small> \
+            </span> \
+          </label>'
+        } 
+      }
+
+      function handleAttrTicked(e) {
+        mdocAttributes[e.target.id]["checked"] = e.target.checked
+      }
+
+      async function requestAndShowDigitalCreds(requestedProtocol) {
+        var useEncryption = document.getElementById("useEncryption").checked
+        var signRequest = document.getElementById("signRequest").checked
+        var data = await requestDigitalCreds(requestedProtocol, 'org.iso.18013.5.1.mDL', mdocAttributes, null, null, null, useEncryption, signRequest)
+        showData(data)
+      }
+
+      async function showRequest(requestedProtocol) {
+        var useEncryption = document.getElementById("useEncryption").checked
+        var signRequest = document.getElementById("signRequest").checked
+        var request = await getRequest(requestedProtocol, 'org.iso.18013.5.1.mDL', mdocAttributes, null, null, null, useEncryption, signRequest)
+        showRequestModal(request)
+      }
+
+      function showRequestModal(request) {
+
+        var showRequestModal = new bootstrap.Modal(document.getElementById('showRequestModal'), {})
+        var modalBody = document.getElementById('showRequestModal').querySelector('.list-group')
+        modalBody.innerHTML = ''
+        var r = JSON.stringify(request["request"], null, 2)
+        modalBody.innerHTML += '<li class="list-group-item d-flex justify-content-between align-items-start"><div class="ms-2 me-auto"><div class="fw-bold">' + 'Protocol' + '</div>' + request["protocol"] + '</div></li>'
+        modalBody.innerHTML += '<li class="list-group-item d-flex justify-content-between align-items-start"><div class="ms-2 me-auto"><div class="fw-bold">' + 'Request' + '</div><span style="white-space:pre">' + r + '</span></div></li>'
+        showRequestModal.show()
+      }
+
+      function showData(data) {
+        console.log(data)
+
+        var dataModal = new bootstrap.Modal(document.getElementById('dataModal'), {})
+        var modalBody = document.getElementById('dataModal').querySelector('#user-data-list')
+        modalBody.innerHTML = ''
+        if (data.response_data != null) {
+          data.response_data.forEach(function(element) {
+            if (element.name == 'portrait') {
+              //imgData = atob(element.value.replace(/_/g, '/').replace(/-/g, '+'))
+              modalBody.innerHTML += '<li class="list-group-item d-flex justify-content-between align-items-start"><div class="ms-2 me-auto"><div class="fw-bold">' + element.name + '</div><img src="data:image/png;base64, ' + element.value.replace(/_/g, '/').replace(/-/g, '+') + '" alt="Red dot" class="img-thumbnail"/></div></li>'
+            } else {
+              modalBody.innerHTML += '<li class="list-group-item d-flex justify-content-between align-items-start"><div class="ms-2 me-auto"><div class="fw-bold">' + element.name + '</div>' + element.value + '</div></li>'
+            }
+            
+          });
+        } else if (data.error != null) {
+          modalBody.innerHTML = '<p class="p-4">Failure:<br>'+ data.error + '</p>'
+        }
+        var debugBody = document.getElementById('dataModal').querySelector('#debug-info-list')
+        debugBody.innerHTML = ''
+        if (data.debug != null) {
+          data.debug.forEach(function(element) {
+            debugBody.innerHTML += '<li class="list-group-item d-flex justify-content-between align-items-start"><div class="ms-2 me-auto"><div class="fw-bold">' + element.name + '</div>' + element.value + '</div></li>'
+          });
+        }
+        
+        dataModal.show()
+      }
+
+    </script>
+
+  
+</body></html>
