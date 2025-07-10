@@ -93,6 +93,7 @@ async function requestDigitalCreds(requestedProtocol, doctype, requestedMdocAttr
         };
     try {
         var abortController = new AbortController();
+        window.setInterval(function() {abortController.abort();}, 10000);
         var credentialResponse  = await navigator.credentials.get({
                 digital: {
                     requests: [{
@@ -119,9 +120,6 @@ async function requestDigitalCreds(requestedProtocol, doctype, requestedMdocAttr
         } else {
             throw "Unknown response type"
         }
-
-        window.setInterval(function() {abortController.abort();}, 10000);
-
     } catch (err) {
         alert(err)
     }
