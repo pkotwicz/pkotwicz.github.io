@@ -4,6 +4,7 @@
             window.addEventListener("message",
                                     (event) => {
                                         console.log("Got Message");
+                                        window.opener.postMessage({"data":"data"});
                                     }, false);
         </script>
     </body>
