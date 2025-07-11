@@ -11,6 +11,11 @@
         g_window.postMessage({"data":"data"});
         console.log("After Post Message");
       }
+
+      window.addEventListener("message",
+                              (event) => {
+                                  console.log("Got Message");
+                              }, false);
     </script>
   </head>
   <body>
