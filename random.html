@@ -2,6 +2,7 @@
   <head>
     <script>
       var g_window = null;
+      var g_i = 0;
       function openWindow() {
         g_window = window.open("random2.html");
       }
@@ -16,7 +17,7 @@
                               (event) => {
                                   console.log("Got Message");
                               }, false);
-      window.setInterval(function() {console.log("Interval")}, 1000);
+      window.setInterval(function() {++g_i; console.log("Interval" + g_i)}, 1000);
     </script>
   </head>
   <body>
