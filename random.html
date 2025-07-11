@@ -6,7 +6,7 @@
         g_window = window.open("random2.html");
       }
 
-      function postMessage() {
+      function postMessage2() {
         console.log("Before Post Message");
         g_window.postMessage({"data":"data"});
         console.log("After Post Message");
@@ -20,6 +20,6 @@
   </head>
   <body>
     <button onclick="openWindow()">Open Window</button>
-    <button onclick="postMessage()">PostMessage</button>
+    <button onclick="postMessage2()">PostMessage</button>
   </body>
 </html>
