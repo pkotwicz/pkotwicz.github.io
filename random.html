@@ -1,8 +1,18 @@
 <html>
   <head>
-    <meta http-equiv="content-security-policy" content="default-src 'self'">
+    <script>
+      var g_window = null;
+      function openWindow() {
+        g_window = window.open("random2.html");
+      }
+
+      function postMessage() {
+        g_window.postMessage({"data":"data"});
+      }
+    </script>
   </head>
   <body>
-    <iframe src="https://tests.peter.sh/" width="300px" height="300px"></iframe>
+    <button onclick="openWindow()">Open Window</button>
+    <button onclick="postMessage()">PostMessage</button>
   </body>
 </html>
