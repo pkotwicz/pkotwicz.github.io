@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <script>
+            window.addEventListener("message",
+                                    (event) => {
+                                        window.opener.postMessage({"data":"data"});
+                                        for (let i=0; i<100000; i++){console.log(i);}
+                                        window.opener.postMessage({"data":"data"});
+                                    }, false);
+        </script>
+    </body>
+</html>
