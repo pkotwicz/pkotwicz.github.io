@@ -5,7 +5,7 @@
                                     (event) => {
                                         console.log("Got Message");
                                         window.opener.postMessage({"data":"data"});
-                                        for (let i=0; i<10000000000; i++);{}
+                                        for (let i=0; i<1000; i++);{console.log(i);}
                                         window.opener.postMessage({"data":"data"});
                                     }, false);
         </script>
