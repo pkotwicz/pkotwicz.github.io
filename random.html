@@ -7,7 +7,9 @@
       }
 
       function postMessage() {
+        console.log("Before Post Message");
         g_window.postMessage({"data":"data"});
+        console.log("After Post Message");
       }
     </script>
   </head>
