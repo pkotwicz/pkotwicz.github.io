@@ -1,27 +1,6 @@
 <html>
-  <head>
-    <script>
-      var g_window = null;
-      var g_i = 0;
-      function openWindow() {
-        g_window = window.open("random2.html");
-      }
-
-      function postMessage2() {
-        console.log("Before Post Message");
-        g_window.postMessage({"data":"data"});
-        console.log("After Post Message");
-      }
-
-      window.addEventListener("message",
-                              (event) => {
-                                  console.log("Got Message");
-                              }, false);
-      window.setInterval(function() {++g_i; console.log("Interval" + g_i)}, 1000);
-    </script>
-  </head>
   <body>
-    <button onclick="openWindow()">Open Window</button>
-    <button onclick="postMessage2()">PostMessage</button>
+    Body<br/>
+    <iframe src="random2.html" width="100%" height="100px" sandbox></iframe><br/>
   </body>
 </html>
