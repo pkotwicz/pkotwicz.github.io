@@ -10,7 +10,7 @@
     }
 
     function ShowSpinner(should_show) {
-      document.getElementById("main_content").filter= should_show ? "opacity(0.5)" : "opacity(1)";
+      document.getElementById("main_content").style.filter= should_show ? "opacity(0.5)" : "opacity(1)";
       document.getElementById("spinner").style.display = should_show ? "block" : "none";
     }
         
