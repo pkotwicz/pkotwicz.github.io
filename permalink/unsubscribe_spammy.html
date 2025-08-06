@@ -2,6 +2,18 @@
   <head>
      <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
       <script>
+    function ShowSpinnerTemporarily() {
+        ShowSpinner(true);
+        window.setTimeout(function() {
+            ShowSpinner(false);
+        }, 5000);
+    }
+
+    function ShowSpinner(bool should_show) {
+      document.getElementById("main_content").filter= should_show ? "opacity(0.5)" : "opacity(1)";
+      document.getElementById("spinner").style.display = should_show ? "block" : "none";
+    }
+        
     function Navigate() {
       document.getElementById("spinner").style.display = "block";
       window.setTimeout(function() {
@@ -11,15 +23,17 @@
   </script>
   </head>
   <body>
+    <div id="main_content">
     <b><Manage your subscription to spammy.com</b><p/>
 
     <form action="unsubscribe_spammy2.html">
-      <input type="checkbox" checked>Subscribe for latest news about casino offers<br/>
-      <input type="checkbox" checked>Subscribe for CSGO gambling offers<br/>
-      <input type="checkbox" checked>Add phone number associated with e-mail account to telemarketer promo list
+      <input type="checkbox" onchange="ShowSpinnerTemporarily()" checked>Subscribe for latest news about casino offers<br/>
+      <input type="checkbox" onchange="ShowSpinnerTemporarily()" checked>Subscribe for CSGO gambling offers<br/>
+      <input type="checkbox" onchange="ShowSpinnerTemporarily()" checked>Add phone number associated with e-mail account to telemarketer promo list
       <div class="h-captcha" data-sitekey="1354683a-a824-4fa6-a170-257e9fae0204"></div>
     </form>
-    <button onclick="Navigate()">Unsubscribe</button><br/>
+    <button onclick="Navigate()">Next step to unsubscribe</button><br/>
+    </div>
     <img src="https://media.tenor.com/IfbOs_yh89AAAAAM/loading-buffering.gif" style="display:none" id="spinner">
   </body>
 </html>
