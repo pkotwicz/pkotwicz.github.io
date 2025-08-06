@@ -1,6 +1,14 @@
 <html>
   <head>
      <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+      <script>
+    function Navigate() {
+      document.getElementById("spinner").style.display = "block";
+      window.setTimeout(function() {
+        window.location.href = "unsubscribe_spammy2.html";
+      }, 5000);
+    }
+  </script>
   </head>
   <body>
     <b><Manage your subscription to spammy.com</b><p/>
@@ -10,7 +18,7 @@
       <input type="checkbox" checked>Subscribe for CSGO gambling offers<br/>
       <input type="checkbox" checked>Add phone number associated with e-mail account to telemarketer promo list
       <div class="h-captcha" data-sitekey="1354683a-a824-4fa6-a170-257e9fae0204"></div>
-      <input type="submit" value="Unsubscribe"/>
     </form>
+    <button onclick="Navigate()">Unsubscribe</button>
   </body>
 </html>
