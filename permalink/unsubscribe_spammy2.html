@@ -1,8 +1,17 @@
 <html>
+  <script>
+    function Navigate() {
+      document.getElementById("spinner").style.display = "block";
+      window.setTimeout(function() {
+        window.location.href = "unsubscribe_spammy3.html";
+      }, 5000);
+    }
+  </script>
   <body>
     <b>Unsubscribe from spammy.com</b><p/>
     If you want to unsubscribe, please type "I am sure" below.<br/>
     <input/><br/>
-    <button onclick="window.location.href='unsubscribe_spammy3.html'">Submit</button>
+    <button onclick="Navigate()">Submit</button><br/>
+    <img src="https://media.tenor.com/IfbOs_yh89AAAAAM/loading-buffering.gif" style="display:none" id="spinner">
   </body>
 </html>
