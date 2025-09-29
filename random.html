@@ -1,5 +1,28 @@
 <html>
   <body>
-    <iframe src="random2.html" width="100%" height="100px"/>
+    <script>
+const htmlContent = `
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Blob HTML Page</title>
+  </head>
+  <body>
+    <h1>Hello from a Blob URL!</h1>
+    <p>This content was generated dynamically.</p>
+  </body>
+  </html>
+`;
+
+const blob = new Blob([htmlContent], { type: 'text/html' });
+const blobUrl = URL.createObjectURL(blob);
+
+// Now you can use blobUrl in an iframe, an anchor tag, or window.open()
+console.log(blobUrl);
+
+      var element = document.createElement("a");
+      element.href = blobUrl;
+      document.body.appendChild(element);
+    </script>
   </body>
 </html>
