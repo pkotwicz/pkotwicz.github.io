@@ -5,7 +5,7 @@
                 let iframe = document.createElement("iframe");
                 iframe.src = "about:blank";
                 document.body.append(iframe);
-                iframe.body.innerHTML = "Hello!";
+                iframe.contentWindow.document.body.innerHTML = "Hello!";
             }
         </script>
     </head>
