@@ -1,5 +1,15 @@
 <html>
+    <head>
+        <script>
+            function OpenAboutBlankIframe() {
+                let iframe = document.createElement("iframe");
+                iframe.src = "about:blank";
+                document.body.append(iframe);
+                iframe.body.innerHTML = "Hello!";
+            }
+        </script>
+    </head>
     <body>
-      <iframe src="data:text/plain;charset=UTF-8;page=21,the%20data:1234,5678">Index</iframe>
+      <button onclick="OpenAboutBlankIframe()">Click</button>
     </body>
 </html>
