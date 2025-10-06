@@ -2,10 +2,13 @@
     <head>
         <script>
             function OpenAboutBlankIframe() {
+                const textContent = "Hello, this is a demo of a Blob URL!";
+                const blob = new Blob([textContent], { type: "text/plain" });
+                
                 let iframe = document.createElement("iframe");
-                iframe.src = "about:blank";
+                iframe.src = URL.createObjectURL(blob);//"about:blank";
                 document.body.append(iframe);
-                iframe.contentWindow.document.body.innerHTML = "Hello!";
+                //iframe.contentWindow.document.body.innerHTML = "Hello!";
             }
         </script>
     </head>
