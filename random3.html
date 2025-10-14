@@ -1,0 +1,22 @@
+<html>
+<head>
+<script>
+function DoIt() {
+    webkitRequestFileSystem(window.TEMPORARY, 1024, fs => {
+        fs.root.getFile('a.txt', {create: true}, entry => {
+            entry.createWriter(w => {
+                w.write(new Blob([contents], {type: '%s'}));
+                w.onwrite = function(evt) {
+                    console.log(entry.toURL());
+                    resolve(entry.toURL());
+                }
+            });
+        });
+    });
+}
+</script>
+</head>
+<body>
+<button onclick="DoIt()">Click</button>
+</body>
+</html>
