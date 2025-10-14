@@ -3,14 +3,16 @@
 <script>
 function DoIt() {
     var contents = "Hello!";
-    const url = await webkitRequestFileSystem(window.TEMPORARY, 1024, fs => {
-        fs.root.getFile('a.txt', {create: true}, entry => {
-            entry.createWriter(w => {
-                w.write(new Blob([contents], {type: '%s'}));
-                w.onwrite = function(evt) {
-                    console.log(entry.toURL());
-                    resolve(entry.toURL());
-                }
+    const url = new Promise(resolve => {
+        webkitRequestFileSystem(window.TEMPORARY, 1024, fs => {
+            fs.root.getFile('a.txt', {create: true}, entry => {
+                entry.createWriter(w => {
+                    w.write(new Blob([contents], {type: '%s'}));
+                    w.onwrite = function(evt) {
+                        console.log(entry.toURL());
+                        resolve(entry.toURL());
+                    }
+                });
             });
         });
     });
