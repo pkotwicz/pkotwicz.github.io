@@ -3,7 +3,7 @@
 <script>
 async function DoIt() {
     var contents = "Hello!";
-    const url = new Promise(resolve => {
+    const url = await new Promise(resolve => {
         webkitRequestFileSystem(window.TEMPORARY, 1024, fs => {
             fs.root.getFile('a.txt', {create: true}, entry => {
                 entry.createWriter(w => {
