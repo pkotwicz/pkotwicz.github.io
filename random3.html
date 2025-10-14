@@ -3,7 +3,7 @@
 <script>
 function DoIt() {
     var contents = "Hello!";
-    webkitRequestFileSystem(window.TEMPORARY, 1024, fs => {
+    const url = await webkitRequestFileSystem(window.TEMPORARY, 1024, fs => {
         fs.root.getFile('a.txt', {create: true}, entry => {
             entry.createWriter(w => {
                 w.write(new Blob([contents], {type: '%s'}));
@@ -14,10 +14,12 @@ function DoIt() {
             });
         });
     });
+    document.getElementById("iframe1").src = url;
 }
 </script>
 </head>
 <body>
 <button onclick="DoIt()">Click</button>
+<iframe id="iframe1" width="200px" height="100px"></iframe>
 </body>
 </html>
