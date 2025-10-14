@@ -1,7 +1,7 @@
 <html>
 <head>
 <script>
-function DoIt() {
+async function DoIt() {
     var contents = "Hello!";
     const url = new Promise(resolve => {
         webkitRequestFileSystem(window.TEMPORARY, 1024, fs => {
