@@ -2,6 +2,7 @@
 <head>
 <script>
 function DoIt() {
+    var contents = "Hello!";
     webkitRequestFileSystem(window.TEMPORARY, 1024, fs => {
         fs.root.getFile('a.txt', {create: true}, entry => {
             entry.createWriter(w => {
