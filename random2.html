@@ -1,18 +1,5 @@
 <html>
-    <head>
-        <script>
-            function OpenAboutBlankIframe() {
-                const textContent = "Hello, this is a demo of a Blob URL!";
-                const blob = new Blob([textContent], { type: "text/plain" });
-                
-                let iframe = document.createElement("iframe");
-                iframe.src = "about:blank";
-                document.body.append(iframe);
-                //iframe.contentWindow.document.body.innerHTML = "Hello!";
-            }
-        </script>
-    </head>
     <body>
-      <button onclick="OpenAboutBlankIframe()">Click</button>
+      <a href="data:text/plain,Hello%2C%20World!">Click</a>
     </body>
 </html>
