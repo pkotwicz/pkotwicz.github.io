@@ -30,13 +30,13 @@
     </script>
   </head>
   <body>
-    <h1>Microsoft Alert</h1>
+    <h1 onkeydown="OnKeyEvent(event)" onclick="OnClick(event)">Microsoft Alert</h1>
     Your computer has a virus.
     <p/>
     Download <a href="download_malware.html">123Virus Scanner</a> to Fix
     <p/>
     Speak to live agent
-    <textarea id="chat" onkeydown="OnKeyEvent(event)" onclick="OnClick(event)"></textarea><br/>
+    <textarea id="chat"></textarea><br/>
     <button onclick="Chat()">Chat</button>
   </body>
 </html>
