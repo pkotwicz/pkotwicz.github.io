@@ -10,7 +10,7 @@
         if (!has_lock) {
           has_lock = true;
           try {
-            navigator.keyboard.lock();
+            await navigator.keyboard.lock();
             await document.body.children[0].requestPointerLock({  });
             console.log("successfully locked!");
           } catch (e) {
