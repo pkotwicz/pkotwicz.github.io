@@ -10,7 +10,7 @@
         if (!has_lock) {
           has_lock = true;
           try {
-            await document.body.requestPointerLock({ unadjustedMovement: true });
+            await document.body.children[0].requestPointerLock({  });
             console.log("successfully locked!");
           } catch (e) {
             console.log("lock failed with error: ", e);
