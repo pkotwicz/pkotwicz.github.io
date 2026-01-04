@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script>
+      let g_has_lock = false;
+      
+      function Chat() {
+        const chatText = document.getElementById("chat");
+        const p = document.createElement('p');
+        p.innerHTML = chatText.value;
+        document.body.appendChild(p);
+      }
+
+      function OnKeyEvent(e) {
+        console.log(e);
+      }
+
+      async function OnClick(e) {
+        if (!g_has_lock) {
+          g_has_lock = true;
+          try {
+            await navigator.keyboard.lock();
+            //await document.body.children[0].requestPointerLock({  });
+            console.log("successfully locked!");
+          } catch (e) {
+            console.log("lock failed with error: ", e);
+          }
+        }
+      }
+      
+    </script>
+  </head>
+  <body>
+    <h1 onkeydown="OnKeyEvent()" onclick="OnClick()">Hi!</h1>
+  </body>
+</html>
