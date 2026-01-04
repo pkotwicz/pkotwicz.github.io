@@ -4,7 +4,7 @@
     const LOCKED_KEYS = ["MetaLeft", "MetaRight", "Tab", "KeyN", "KeyT", "Escape"];
 
     let lock = false;
-    async function onClickHeader() {
+    async function OnClickHeader() {
       if (!lock) {
         lock = true;
         await document.documentElement.requestFullscreen();
