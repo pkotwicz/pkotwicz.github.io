@@ -16,7 +16,9 @@
       if (!in_fullscreen) {
         in_fullscreen = true;
         navigator.keyboard.lock(LOCKED_KEYS);
-        document.body.children[0].requestPointerLock({  });
+        window.setTimeout(function(){
+           document.body.children[0].requestPointerLock({  });
+        }, 1000);
       }
     });
     </script>
