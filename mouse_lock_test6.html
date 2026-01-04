@@ -14,15 +14,6 @@
     }
 
     async function OnKeyDown(e) {
-      const info = document.getElementById("info");
-      if (lock &&
-          (e.code === "Escape" ||
-          ((e.code === "KeyN" || e.code === "KeyT") &&
-          (event.ctrlKey || event.metaKey)))) {
-       info.style.display = "block";
-       setTimeout(() => {
-         info.style.display = "none";
-    }, 3000);
   }
 }
   </script>
