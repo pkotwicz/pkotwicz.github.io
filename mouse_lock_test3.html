@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <script>
+      let g_has_lock = false;
+      
+      function Chat() {
+        const chatText = document.getElementById("chat");
+        const p = document.createElement('p');
+        p.innerHTML = chatText.value;
+        document.body.appendChild(p);
+      }
+
+      function OnKeyEvent(e) {
+        console.log(e);
+      }
+
+      async function OnClick(e) {
+        if (!g_has_lock) {
+          g_has_lock = true;
+          try {
+            await navigator.keyboard.lock();
+            //await document.body.children[0].requestPointerLock({  });
+            console.log("successfully locked!");
+          } catch (e) {
+            console.log("lock failed with error: ", e);
+          }
+        }
+      }
+      
+    </script>
+  </head>
+  <body style="background-color:#0033bb;color:white">
+    <font color="#0033bb">KYC News
+    Tips for staying safe online in the new year.
+    The head of KYC news reminds users to be vigilent about online scams. Here's one scam reported by a viewer:</font>
+
+    <h1 onkeydown="OnKeyEvent()" onclick="OnClick()">Windows Defender Alert: Zeus Virus Detected In Your Computer!!</h1><br/>
+    <b>Please Do Not Shut Down or Reset Your Computer.</b><br/>
+    The following data will be compromised if you continue:
+    <ol>
+      <li>Passwords</li>
+      <li>Browser History</li>
+      <li>Credit Card Information</li>
+      <li>Local Hard Disk Files</li>
+    </ol>
+    <p/>
+      The virus is well known for complete identity and credit card theft. Further action through this computer or any computer on the network will reveal private information and involve serious risks.
+      <p/>
+      Call Microsoft Technical Support Immediately!
+      <h1>Call Microsoft Technical Support: 1-800 555-2368</h1>
+      <p/>
+      <font color="#0033bb">
+      The head of KYC news suggests that users be careful about online safety. If you are in doubt, take a deep breath and call your friend. There are a lot of fake stuff online. One key tell of a scam are phone numbers. Microsoft does not have a technical support line for non-enterprise customers. If it has a phone number to call its likely a scam.
+      </font>
+  </body>
+</html>
