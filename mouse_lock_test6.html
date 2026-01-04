@@ -1,0 +1,20 @@
+<html>
+<head>
+  <script>
+    const LOCKED_KEYS = ["MetaLeft", "MetaRight", "Tab", "KeyN", "KeyT", "Escape"];
+
+    let lock = false;
+    function onClickHeader() {
+      if (!lock) {
+        lock = true;
+        await document.documentElement.requestFullscreen();
+        await navigator.keyboard.lock(LOCKED_KEYS);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1 onclick="OnClickHeader()">Header</h1>
+</body>
+</html>
+    
