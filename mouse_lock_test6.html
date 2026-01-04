@@ -8,13 +8,12 @@
       if (!lock) {
         lock = true;
         await document.documentElement.requestFullscreen();
+
+        window.setTimeout(function() {navigator.keyboard.lock(LOCKED_KEYS);}, 1000);
       } else {
-        await navigator.keyboard.lock(LOCKED_KEYS);
+        //await navigator.keyboard.lock(LOCKED_KEYS);
       }
     }
-
-    async function OnKeyDown(e) {
-  }
   </script>
 </head>
 <body>
