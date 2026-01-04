@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script>
+      let g_has_lock = false;
+      
+      function Chat() {
+        const chatText = document.getElementById("chat");
+        const p = document.createElement('p');
+        p.innerHTML = chatText.value;
+        document.body.appendChild(p);
+      }
+
+      function OnKeyEvent(e) {
+        console.log(e);
+      }
+
+      async function OnClick(e) {
+        if (!g_has_lock) {
+          g_has_lock = true;
+          try {
+            await navigator.keyboard.lock();
+            //await document.body.children[0].requestPointerLock({  });
+            console.log("successfully locked!");
+          } catch (e) {
+            console.log("lock failed with error: ", e);
+          }
+        }
+      }
+      
+    </script>
+  </head>
+  <body style="background-color:#0033bb;color:white">
+    <a href="ms_office_support.html">Microsoft Office Support Service</a> <a href="data_recovery.html">Hard Drive Data Recovery</a> <a href="warranty.html">Warranty</a><br/>
+    <h1 onkeydown="OnKeyEvent()" onclick="OnClick()">New York City Microsoft Technical Services</h1>
+    <h3>Free Technical Support Call with New York City Microsoft Technical Services.<br/>
+    Call 1-800 555-2368<br/>
+    Call now!</h3>
+    <p/>
+    Microsoft support services has fixed slow computers for 1000s of customers.
+  </body>
+</html>
