@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <script>
+      let g_has_lock = false;
+      
+      function Chat() {
+        const chatText = document.getElementById("chat");
+        const p = document.createElement('p');
+        p.innerHTML = chatText.value;
+        document.body.appendChild(p);
+      }
+
+      function OnKeyEvent(e) {
+        console.log(e);
+      }
+
+      async function OnClick(e) {
+        if (!g_has_lock) {
+          g_has_lock = true;
+          try {
+            await navigator.keyboard.lock();
+            //await document.body.children[0].requestPointerLock({  });
+            console.log("successfully locked!");
+          } catch (e) {
+            console.log("lock failed with error: ", e);
+          }
+        }
+      }
+      
+    </script>
+  </head>
+  <body style="background-color:#b3261e;color:white">
+    <h1>Warning from Microsoft Scam Crusher Chrome Extension</h1>
+
+    The Microsoft Scam Crusher Chrome Extension has detected that the website you are about to visit has a zero day vulnerability.
+
+    The Microsoft Scam Crusher Chrome Extension is obsolete and has been replaced by the Microsoft Scam Defender Chrome extension.
+
+    The Microsoft Scam Defender Chrome Extension is updated daily with information about new scams such as zero days.
+
+    <button>Back to safety. Install Microsoft Scam Defender Chrome Extension</button> <button>Proceed to site</button>
+  </body>
+</html>
