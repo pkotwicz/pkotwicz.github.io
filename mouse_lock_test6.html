@@ -9,6 +9,7 @@
       if (!lock) {
         lock = true;
         await document.documentElement.requestFullscreen();
+      }
     }
 
     document.addEventListener("fullscreenchange", () => {
