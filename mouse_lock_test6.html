@@ -11,10 +11,24 @@
         await navigator.keyboard.lock(LOCKED_KEYS);
       }
     }
+
+    async function OnKeyDown() {
+      const info = document.getElementById("info");
+      if (lock &&
+          (e.code === "Escape" ||
+          ((e.code === "KeyN" || e.code === "KeyT") &&
+          (event.ctrlKey || event.metaKey)))) {
+       info.style.display = "block";
+       setTimeout(() => {
+         info.style.display = "none";
+    }, 3000);
+  }
+}
   </script>
 </head>
-<body>
+<body onkeydown="OnKeyDown()">
   <h1 onclick="OnClickHeader()">Header</h1>
+  <div id="info">Info</div>
 </body>
 </html>
     
