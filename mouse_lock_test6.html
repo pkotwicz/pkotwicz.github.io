@@ -8,6 +8,7 @@
       if (!lock) {
         lock = true;
         await document.documentElement.requestFullscreen();
+      } else {
         await navigator.keyboard.lock(LOCKED_KEYS);
       }
     }
