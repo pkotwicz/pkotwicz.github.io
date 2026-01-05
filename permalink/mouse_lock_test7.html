@@ -24,14 +24,21 @@
     document.addEventListener("fullscreenchange", () => {
       if (!in_fullscreen) {
         in_fullscreen = true;
-        document.documentElement.scroll(0,400);
         navigator.keyboard.lock(LOCKED_KEYS);
       }
     });
-      
+
+    function OnLoad() {
+      window.scroll(0,400);
+    }
+
+    function OnWheel(event) {
+      event.preventDefault();
+    }
+            
     </script>
   </head>
-  <body style="background-color:#0033bb;color:white">
+  <body style="background-color:#0033bb;color:white" onload="OnLoad()" onwheel="OnWheel(event)">
     KYC News
     Tips for staying safe online in the new year.
     The head of KYC news reminds users to be vigilent about online scams. Here's one scam reported by a viewer:
