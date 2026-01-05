@@ -33,7 +33,9 @@
     }
 
     function OnWheel(event) {
-      event.preventDefault();
+      if (lock) {
+          event.preventDefault();
+      }
     }
             
     </script>
